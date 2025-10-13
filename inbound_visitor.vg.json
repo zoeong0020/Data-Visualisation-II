@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Inbound visitor arrivals to Malaysia by country, selectable by year, with labels",
+  "title": {
+    "text": "Inbound Visitor Arrivals to Malaysia by Country",
+    "font": "Open Sans",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+  "width": 500,
+  "height": 400,
+  "padding": {"top": 0, "right": 50, "bottom": 0, "left": 50},
+  "data": {
+    "url": "inbound_visitor.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "yearSelection",
+      "value": "2019",
+      "bind": {
+        "input": "select",
+        "options": ["2019", "2020", "2021", "2022", "2023"],
+        "labels": ["2019", "2020", "2021", "2022", "2023"],
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "transform": [{"filter": "datum.Year == yearSelection"}],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "Arrivals", "type": "quantitative", "title": "Visitor Arrivals"},
+        "y": {"field": "Country", "type": "ordinal", "sort": "-x", "title": "Country"},
+        "tooltip": [
+          {"field": "Country", "type": "ordinal"},
+          {"field": "Arrivals", "type": "quantitative", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 3
+      },
+      "encoding": {
+        "x": {"field": "Arrivals", "type": "quantitative"},
+        "y": {"field": "Country", "type": "ordinal", "sort": "-x"},
+        "text": {"field": "Arrivals", "type": "quantitative", "format": ","}
+      }
+    }
+  ]
+}
+
+
+

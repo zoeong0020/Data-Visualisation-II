@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tourism in Malaysia</title>
+
+  <!-- Vega Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- CSS Framework -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" crossorigin="anonymous">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="page">
+    <h1>Tourism in Malaysia</h1>
+    <p style="text-align:center;">An overview of domestic and inbound tourism statistics in Malaysia.</p>
+
+
+<!-- Row 1: Line Chart -->
+<div class="pure-g section">
+  <div class="pure-u-2-3">
+    <div class="description">
+      <h2>Visitor Arrivals</h2>
+    </div>
+    <div id="vis-line" class="vis-container"></div>
+  </div>
+
+  <div class="pure-u-1-3">
+    <p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
+      The line chart shows a dramatic decline in visitor arrivals in year 
+      <strong>2020 & 2021</strong> due to the <em>COVID-19 pandemic</em>, where travel restrictions 
+      caused a drop of nearly 80%. Recovery began in year <strong>2022</strong> with border reopenings 
+      and increased international tourism. By year <strong>2024</strong>, visitor arrivals nearly returned 
+      to pre-pandemic levels, signaling a strong rebound for Malaysia’s tourism sector.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Row 2: Bar Chart -->
+    <div class="pure-g section">
+      <div class="pure-u-2-3">
+        <div class="description"><h2>Inbound Visitor Arrivals by Country</h2></div>
+        <div id="vis-bar" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
+    <p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
+      The data shows Malaysia’s inbound tourism trends from 2019 to 2023. Visitor arrivals peaked in 2019, 
+      led by Singapore, Indonesia, and China. Numbers dropped sharply in 2020–2021 due to COVID-19 travel 
+      restrictions, hitting their lowest in 2021. Tourism rebounded in 2022 and surged in 2023, with Singapore 
+      again leading by a large margin. Overall, the dataset highlights the pandemic’s severe impact and Malaysia’s 
+      strong post-pandemic recovery in regional tourism.
+    </p>
+  </div>
+
+    </div>
+
+
+   <!-- Row 3: Donut Chart -->
+<div class="pure-g section">
+  <div class="pure-u-2-3">
+    <div class="description"><h2>Transport Modes Used by Inbound Visitors</h2></div>
+    <div id="vis-donut" class="vis-container"></div>
+  </div>
+  <div class="pure-u-1-3">
+    <p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
+      From 2019 to 2023, land transport was the main mode for visitors to Malaysia, making up 
+      over half of arrivals each year. Air travel ranked second, peaking in 2021 due to pandemic 
+      restrictions. Sea and rail transport contributed minimal shares, staying below 8% and 2% respectively. 
+      Overall, Malaysia’s inbound travel relied mostly on land and air connections, with temporary shifts during COVID-19.
+    </p>
+  </div>
+</div> 
+
+
+
+<!-- Row 4: Map -->
+<div class="pure-g section">
+  <div class="pure-u-1">
+    <div class="description"><h2>Domestic Visitors by State</h2></div>
+    <div id="vis-map" class="vis-container"></div>
+    <p style="margin-top:20px; line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
+      From 2019 to 2023, Selangor consistently recorded the highest number of domestic visitors,
+      while Labuan and Putrajaya had the lowest. Visitor numbers dropped sharply in 2020–2021
+      due to the pandemic but rebounded strongly from 2022 onward.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Row 5: Stacked Bar Chart -->
+    <div class="pure-g section">
+      <div class="pure-u-2-3">
+        <div class="description"><h2>Accommodation Types Used by Domestic Visitors</h2></div>
+        <div id="vis-stacked" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
+        <p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
+        From 2019 to 2023, most domestic visitors in Malaysia stayed at relatives’ 
+        or friends’ houses, though this preference declined from 70.9% in 2019 to 61.3% in 2023. 
+        Hotels were the second most popular choice, increasing to 29.5% in 2021 before slightly dropping. 
+        Other options like rest houses, chalets, and homestays remained less common, with homestays showing 
+        gradual growth, peaking at 6.7% in 2023.</p>
+      </div>
+    </div>
+
+    <!-- Row 6: Pie Chart -->
+    <div class="pure-g section">
+      <div class="pure-u-1">
+        <div class="description"><h2>Tourism Expenditure Component</h2></div>
+        <div id="vis-pie" class="vis-container"></div>
+        <p style="margin-top:20px; line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
+      These piechart presents Malaysia’s tourism expenditure from 2019 to 2023, divided into inbound and domestic categories 
+      across various products and services. Inbound expenditure dropped sharply in 2020 and 2021 due to pandemic restrictions, 
+      particularly in accommodation and transport services. However, a strong recovery began in 2022 and accelerated in 2023, 
+      with tourism characteristic goods and passenger transport leading the rebound. Domestic tourism showed resilience, 
+    </p>
+      </div>
+    </div>
+
+<!-- Footer -->
+<div class="pure-g">
+  <div class="pure-u-1 small-font">
+    <p>
+      Visualisations created for <strong>Tourism in Malaysia</strong>. 
+      Created by <strong>Zoe Ong</strong>. 
+      Date: <strong>12/10/2025</strong>. 
+      Data source: 
+      <a href="https://www.dosm.gov.my/portal-main/release-content/tourism-satellite-account-2023" 
+         target="_blank">
+         Department of Statistics Malaysia
+      </a> & 
+      <a href="https://data.tourism.gov.my/frontend/pdf/New_Final_Malaysia%20Tourism%20Statistics%20in%20Brief%202024.pdf" 
+         target="_blank">
+         Tourism Malaysia
+      </a>.
+    </p>
+  </div>
+</div>
+
+
+  <!-- Embed Charts -->
+  <script type="text/javascript">
+    const charts = [
+      {id: 'vis-line', spec: 'visitor_arrival.vg.json'},
+      {id: 'vis-bar', spec: 'inbound_visitor.vg.json'},
+      {id: 'vis-donut', spec: 'transport_mode.vg.json'},
+      {id: 'vis-map', spec: 'domestic_visitor.vg.json'},
+      {id: 'vis-stacked', spec: 'accommodation_type.vg.json'},
+      {id: 'vis-pie', spec: 'expenditure_component.vg.json'}
+    ];
+
+    charts.forEach(chart => {
+      vegaEmbed('#' + chart.id, chart.spec, {actions: false, mode: 'vega-lite'})
+        .catch(console.error);
+    });
+  </script>
+</body>
+</html>

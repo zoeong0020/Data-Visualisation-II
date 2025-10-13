@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Visitor arrivals to Malaysia by year",
+  "title": {
+    "text": "Visitor Arrivals to Malaysia by Year (2019–2024)",
+    "font": "Open Sans",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+  "width": 600,
+  "height": 400,
+  "background": "rgba(255, 255, 255, 0.7)",
+  "data": {
+    "url": "visitor_arrival.csv",
+    "format": {"type": "csv"}
+  },
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+    "y": {"field": "Arrivals", "type": "quantitative", "title": "Visitor Arrivals"}
+  },
+  "layer": [
+    {
+      "transform": [{"filter": "datum.Year == '2020'"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -100,
+        "dy": 40,
+        "color": "#b30000",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "opacity": 0.85
+      },
+      "encoding": {
+        "text": {"value": "COVID-19 travel restrictions"}
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "#1a2b3c", "point": true},
+      "encoding": {
+        "tooltip": [{"field": "Year"}, {"field": "Arrivals"}]
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Year == '2020' || datum.Year == '2021'"}
+      ],
+      "mark": {"type": "point", "filled": true, "color": "#b30000", "size": 120},
+      "encoding": {
+        "tooltip": [{"field": "Year"}, {"field": "Arrivals"}]  
+      }
+    }
+  ]
+}
+
+
+

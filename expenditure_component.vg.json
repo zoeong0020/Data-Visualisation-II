@@ -1,0 +1,105 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "expenditure_component.csv", "format": {"type": "csv"}},
+  "transform": [
+    {"calculate": "datum.Expenditure * 1", "as": "ExpenditureNum"}
+  ],
+  "params": [
+    {
+      "name": "YearSelection",
+      "value": "2019",
+      "bind": {
+        "input": "select",
+        "options": ["2019", "2020", "2021", "2022", "2023"],
+        "labels": ["2019", "2020", "2021", "2022", "2023"],
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "hconcat": [
+    {
+      "title": "Inbound Tourism Expenditure",
+      "width": 350,
+      "height": 350,
+      "transform": [
+        {"filter": "datum.Year == YearSelection && datum.Type == 'Inbound'"}
+      ],
+      "mark": {"type": "arc", "outerRadius": 160},
+      "encoding": {
+        "theta": {"field": "ExpenditureNum", "type": "quantitative"},
+        "color": {
+          "field": "Products",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#1f77b4", "#ff7f0e", "#9467bd", "#17becf",
+              "#e377c2", "#bcbd22", "#7f7f7f", "#8c564b"
+            ]
+          },
+          "legend": {
+            "title": "Products",
+            "orient": "right",
+            "padding": 40,
+            "labelOffset": 10,
+            "titleFontSize": 13,
+            "labelFontSize": 12
+          }
+        },
+        "tooltip": [
+          {"field": "Products", "type": "nominal"},
+          {
+            "field": "ExpenditureNum",
+            "type": "quantitative",
+            "title": "Expenditure (Million)"
+          }
+        ]
+      },
+      "view": {"stroke": null}
+    },
+    {
+      "title": "Domestic Tourism Expenditure",
+      "width": 350,
+      "height": 350,
+      "transform": [
+        {"filter": "datum.Year == YearSelection && datum.Type == 'Domestic'"}
+      ],
+      "mark": {"type": "arc", "outerRadius": 160},
+      "encoding": {
+        "theta": {"field": "ExpenditureNum", "type": "quantitative"},
+        "color": {
+  "field": "Products",
+  "type": "nominal",
+  "scale": {
+    "range": [
+      "#1f77b4", "#ff7f0e", "#9467bd", "#17becf",
+      "#e377c2", "#bcbd22", "#7f7f7f", "#8c564b"
+    ]
+  },
+  "legend": {
+    "title": "Products",
+    "labelLimit": 0,
+    "labelFontSize": 12,
+    "labelPadding": 20
+  }
+},
+      
+        "tooltip": [
+          {"field": "Products", "type": "nominal"},
+          {
+            "field": "ExpenditureNum",
+            "type": "quantitative",
+            "title": "Expenditure (Million)"
+          }
+        ]
+      },
+      "view": {"stroke": null}
+    }
+  ],
+  "config": {
+    "title": {"fontSize": 18, "anchor": "middle"},
+    "view": {"stroke": "transparent"},
+    "arc": {"stroke": "white", "strokeWidth": 1.5},
+    "legend": {"symbolSize": 150}
+  }
+}
+

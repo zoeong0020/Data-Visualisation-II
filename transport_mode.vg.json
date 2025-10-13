@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Mode of Transport for Visitor Arrivals to Malaysia",
+  "title": {
+    "text": "Mode of Transport for Inbound Visitors by Year",
+    "font": "Open Sans",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+  "width": 500,
+  "height": 400,
+  "data": {
+    "url": "transport_mode.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "yearSelection",
+      "value": "2019",
+      "bind": {
+        "input": "select",
+        "options": ["2019", "2020", "2021", "2022", "2023"],
+        "labels": ["2019", "2020", "2021", "2022", "2023"],
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Year == yearSelection"},
+    {"calculate": "datum.Percentage * 1", "as": "PercentageNum"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "arc", "outerRadius": 170, "innerRadius": 50}
+    },
+    {
+      "transform": [
+        {"filter": "datum.PercentageNum > 0"}   
+      ],
+      "mark": {
+        "type": "text",
+        "radius": 185,
+        "align": "center",
+        "baseline": "middle"                      
+      },
+      "encoding": {
+        "theta": {
+          "field": "PercentageNum",
+          "type": "quantitative",
+          "stack": true
+        },
+        "text": {
+          "field": "PercentageNum",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "theta": {"field": "PercentageNum", "type": "quantitative"},
+    "color": {
+      "field": "Mode of Transport",
+      "type": "nominal",
+      "title": "Mode of Transport"
+    },
+    "tooltip": [
+      {"field": "Mode of Transport", "type": "nominal"},
+      {"field": "PercentageNum", "type": "quantitative", "format": ".1f"}
+    ]
+  },
+  "view": {"stroke": null},
+  "config": {
+    "view": {"continuousWidth": 400, "continuousHeight": 400},
+    "arc": {"innerRadius": 50},
+    "legend": {
+    "labelFontSize": 12,       
+    "titleFontSize": 13,       
+    "symbolSize": 150,         
+    "labelFont": "Open Sans"   
+  }
+  }
+}
+
+

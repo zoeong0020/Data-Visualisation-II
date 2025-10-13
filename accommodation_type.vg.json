@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background":"rgba(255, 255, 255, 0.811)",
+  "title": {
+  "text": "Accommodation Preferences of Domestic Visitors",
+  "font": "Open Sans",
+    "fontSize": 16,
+    "anchor": "middle"
+},
+  "width": 500,
+  "height": 400,
+  "data": {
+    "url": "accommodation_type.csv"
+  },
+  "mark": {"type": "bar"},
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "Percentage",
+      "type": "quantitative",
+      "title": "Percentage (%)",
+      "stack": "normalize"
+    },
+    "color": {
+  "field": "Accommodation",
+  "type": "nominal",
+  "scale": {
+    "domain": ["Hotel", "Rest House", "Chalet", "Homestay", "Relatives/Friend House"],
+    "range": ["#0072B2", "#E69F00", "#56B4E9", "#D55E00", "#F0E442"]
+  },
+  "title": "Accommodation Type"
+},
+    "tooltip": [
+      {"field": "Year", "title": "Year"},
+      {"field": "Accommodation", "title": "Accommodation"},
+      {"field": "Percentage", "title": "Percentage (%)"}
+    ]
+  }
+}
