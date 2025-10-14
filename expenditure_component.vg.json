@@ -18,7 +18,12 @@
   ],
   "hconcat": [
     {
-      "title": "Inbound Tourism Expenditure",
+     "title": {
+  "text": "Inbound Tourism Expenditure",
+  "font": "Open Sans",
+    "fontSize": 16,
+    "anchor": "middle"
+},
       "width": 350,
       "height": 350,
       "transform": [
@@ -57,7 +62,12 @@
       "view": {"stroke": null}
     },
     {
-      "title": "Domestic Tourism Expenditure",
+      "title": {
+  "text": "Domestic Tourism Expenditure",
+  "font": "Open Sans",
+    "fontSize": 16,
+    "anchor": "middle"
+},
       "width": 350,
       "height": 350,
       "transform": [
