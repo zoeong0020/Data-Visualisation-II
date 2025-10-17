@@ -1,6 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "expenditure_component.csv", "format": {"type": "csv"}},
+  "data": {
+    "url": "expenditure_component.csv",
+    "format": {"type": "csv"}
+  },
   "transform": [
     {"calculate": "datum.Expenditure * 1", "as": "ExpenditureNum"}
   ],
@@ -18,18 +21,40 @@
   ],
   "hconcat": [
     {
-     "title": {
-  "text": "Inbound Tourism Expenditure",
-  "font": "Open Sans",
+      "title": {
+    "text": "Inbound Tourism Expenditure",
+    "font": "Open Sans",
     "fontSize": 16,
     "anchor": "middle"
-},
-      "width": 350,
-      "height": 350,
+  },
       "transform": [
         {"filter": "datum.Year == YearSelection && datum.Type == 'Inbound'"}
       ],
-      "mark": {"type": "arc", "outerRadius": 160},
+      "layer": [
+        {
+          "mark": {"type": "arc", "outerRadius": 150, "innerRadius": 0}
+        },
+        {
+          "mark": {
+            "type": "text",
+            "radius": 175,
+            "align": "center",
+            "baseline": "middle"
+          },
+          "encoding": {
+            "theta": {
+              "field": "ExpenditureNum",
+              "type": "quantitative",
+              "stack": true
+            },
+            "text": {
+              "field": "ExpenditureNum",
+              "type": "quantitative",
+              "format": ".1f"
+            }
+          }
+        }
+      ],
       "encoding": {
         "theta": {"field": "ExpenditureNum", "type": "quantitative"},
         "color": {
@@ -38,17 +63,17 @@
           "scale": {
             "range": [
               "#1f77b4", "#ff7f0e", "#9467bd", "#17becf",
-              "#e377c2", "#bcbd22", "#7f7f7f", "#8c564b"
+              "#e377c2", "#bcbd22", "#8c564b"
             ]
           },
-          "legend": {
-            "title": "Products",
-            "orient": "right",
-            "padding": 40,
-            "labelOffset": 10,
-            "titleFontSize": 13,
-            "labelFontSize": 12
-          }
+         "legend": {
+  "title": "Products",
+  "labelLimit": 0,
+  "labelFontSize": 12,
+  "labelPadding": 20,
+  "orient": "right",
+  "direction": "vertical"
+}
         },
         "tooltip": [
           {"field": "Products", "type": "nominal"},
@@ -63,36 +88,57 @@
     },
     {
       "title": {
-  "text": "Domestic Tourism Expenditure",
-  "font": "Open Sans",
+    "text": "Domestic Tourism Expenditure",
+    "font": "Open Sans",
     "fontSize": 16,
     "anchor": "middle"
-},
-      "width": 350,
-      "height": 350,
+  },
       "transform": [
         {"filter": "datum.Year == YearSelection && datum.Type == 'Domestic'"}
       ],
-      "mark": {"type": "arc", "outerRadius": 160},
+      "layer": [
+        {
+          "mark": {"type": "arc", "outerRadius": 150, "innerRadius": 0}
+        },
+        {
+          "mark": {
+            "type": "text",
+            "radius": 175,
+            "align": "center",
+            "baseline": "middle"
+          },
+          "encoding": {
+            "theta": {
+              "field": "ExpenditureNum",
+              "type": "quantitative",
+              "stack": true
+            },
+            "text": {
+              "field": "ExpenditureNum",
+              "type": "quantitative",
+              "format": ".1f"
+            }
+          }
+        }
+      ],
       "encoding": {
         "theta": {"field": "ExpenditureNum", "type": "quantitative"},
         "color": {
-  "field": "Products",
-  "type": "nominal",
-  "scale": {
-    "range": [
-      "#1f77b4", "#ff7f0e", "#9467bd", "#17becf",
-      "#e377c2", "#bcbd22", "#7f7f7f", "#8c564b"
-    ]
-  },
-  "legend": {
-    "title": "Products",
-    "labelLimit": 0,
-    "labelFontSize": 12,
-    "labelPadding": 20
-  }
-},
-      
+          "field": "Products",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#1f77b4", "#ff7f0e", "#9467bd", "#17becf",
+              "#e377c2", "#bcbd22", "#7f7f7f", "#8c564b"
+            ]
+          },
+          "legend": {
+            "title": "Products",
+            "labelLimit": 0,
+            "labelFontSize": 12,
+            "labelPadding": 20
+          }
+        },
         "tooltip": [
           {"field": "Products", "type": "nominal"},
           {
@@ -105,11 +151,19 @@
       "view": {"stroke": null}
     }
   ],
+  "spacing": 50,
   "config": {
-    "title": {"fontSize": 18, "anchor": "middle"},
-    "view": {"stroke": "transparent"},
-    "arc": {"stroke": "white", "strokeWidth": 1.5},
-    "legend": {"symbolSize": 150}
+  "view": {"continuousWidth": 400, "continuousHeight": 400},
+  "arc": {"innerRadius": 0, "stroke": "white", "strokeWidth": 1.5},
+  "title": {"font": "Open Sans", "fontSize": 16, "anchor": "middle"},
+  "legend": {
+    "orient": "bottom",
+    "direction": "horizontal",
+    "labelLimit": 0,
+    "labelFontSize": 12,
+    "labelPadding": 20,
+    "symbolSize": 150,
+    "offset": 30
   }
 }
-
+}
