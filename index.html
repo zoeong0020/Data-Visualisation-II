@@ -71,7 +71,7 @@
     <div class="text-container" style="display: flex; flex-direction: column; gap: 15px;">
       <p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
         This horizontal bar chart shows the inbound visitors by country to Malaysia from <strong>2019 to 2023</strong>. 
-        Select a year from the dropdown menu below the chart to visualize the data.
+        Select a year from the dropdown menu below the chart to visualize the data. Bar in red shows the country that has the highest number of visitors.
       </p>
 
       <p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
@@ -113,20 +113,53 @@
 <!-- Row 4: Map -->
 <div class="pure-g section">
   <div class="pure-u-1">
-    <div class="description"><h2>Domestic Visitors by State</h2></div>
-    <div id="vis-map" class="vis-container"></div>
-    <p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
-  This proportional symbol map shows the number of domestic visitors by state in <strong>2019 to 2023</strong>. 
-  Scroll over the bar below the map to change the year and visualize the data.
-</p>
+    <div class="description">
+      <h2>Domestic Visitors by State</h2>
+    </div>
 
-<p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
-  From <strong>2019 to 2023</strong>, <strong>Selangor</strong> consistently recorded the highest number of domestic visitors, 
-  while <strong>Labuan</strong> and <strong>Putrajaya</strong> had the lowest. Visitor numbers dropped sharply in 
-  <strong>2020–2021</strong> due to the <em>COVID-19 pandemic</em> but rebounded strongly from <strong>2022</strong> onward.
-</p>
+    <div id="vis-map" class="vis-container"></div>
+
+    <!-- Two-column layout with padding -->
+    <div class="pure-g" style="margin-top: 1.5rem;">
+      <!-- Left paragraph -->
+      <div class="pure-u-1-2">
+        <p style="
+          line-height:1.8;
+          font-size:1rem;
+          color:#333;
+          font-family:'Open Sans', sans-serif;
+          padding:0 4rem;
+          text-align:justify;
+        ">
+          This proportional symbol map shows the number of domestic visitors by state 
+          from <strong>2019</strong> to <strong>2023</strong>. Scroll over the bar below 
+          the map to change the year and visualize how the numbers vary across Malaysia.
+        </p>
+      </div>
+
+      <!-- Right paragraph -->
+      <div class="pure-u-1-2">
+        <p style="
+          line-height:1.8;
+          font-size:1rem;
+          color:#333;
+          font-family:'Open Sans', sans-serif;
+          padding:0 4rem;
+          text-align:justify;
+        ">
+          From <strong>2019</strong> to <strong>2023</strong>, 
+          <strong style='color:darkred;'>Selangor</strong> consistently recorded the 
+          highest number of domestic visitors, while <strong>Labuan</strong> and 
+          <strong>Putrajaya</strong> had the fewest. Visitor numbers fell sharply in 
+          <strong>2020–2021</strong> due to <em>COVID-19</em> but rebounded after 
+          <strong>2022</strong>.
+        </p>
+      </div>
+    </div>
   </div>
 </div>
+
+
 
 
     <!-- Row 5: Stacked Bar Chart -->
@@ -151,25 +184,51 @@
   </div>
 </div>
 
+<!-- Row 6: Pie Chart -->
+<div class="pure-g section">
+  <div class="pure-u-1">
+    <div class="description">
+      <h2>Tourism Expenditure Component</h2>
+    </div>
 
-    <!-- Row 6: Pie Chart -->
-    <div class="pure-g section">
-      <div class="pure-u-1">
-        <div class="description"><h2>Tourism Expenditure Component</h2></div>
-        <div id="vis-pie" class="vis-container"></div>
-        <p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
-  These two pie charts compare <strong>inbound</strong> and <strong>domestic visitors</strong> in terms of 
+    <div id="vis-pie" class="vis-container"></div>
+
+    <!-- Two-column layout with padding -->
+    <div class="pure-g" style="margin-top: 1.5rem;">
+      <!-- Left paragraph -->
+      <div class="pure-u-1-2">
+        <p style="
+          line-height:1.8;
+          font-size:1rem;
+          color:#333;
+          font-family:'Open Sans', sans-serif;
+          padding:0 4rem;
+          text-align:justify;
+        ">
+          These two pie charts compare <strong>inbound</strong> and <strong>domestic visitors</strong> in terms of 
   where they spent their money while visiting Malaysia from <strong>2019 to 2023</strong>. 
   You can change the year by selecting a different option from the drop-down menu below the charts.
-</p>
+        </p>
+      </div>
 
-<p style="line-height:1.7; font-size:1rem; color:#333; font-family:'Open Sans', sans-serif;">
-  Inbound expenditure dropped sharply in <strong>2020</strong> and <strong>2021</strong> due to pandemic restrictions, 
+      <!-- Right paragraph -->
+      <div class="pure-u-1-2">
+        <p style="
+          line-height:1.8;
+          font-size:1rem;
+          color:#333;
+          font-family:'Open Sans', sans-serif;
+          padding:0 4rem;
+          text-align:justify;
+        ">
+          Inbound expenditure dropped sharply in <strong>2020</strong> and <strong>2021</strong> due to pandemic restrictions, 
   particularly in accommodation and transport services. However, a strong recovery began in <strong>2022</strong> 
   and accelerated in <strong>2023</strong>, with tourism characteristic goods and passenger transport leading the rebound. 
-</p>
+        </p>
       </div>
     </div>
+  </div>
+</div>
 
 <!-- Footer -->
 <div class="pure-g">
@@ -179,7 +238,7 @@
       Created by <strong>Zoe Ong</strong>.</p> 
       <p>Date: <strong>12/10/2025</strong> |
       Data source: 
-      <a href="https://www.dosm.gov.my/portal-main/release-content/tourism-satellite-account-2023" 
+      <a href="https://www.dosm.gov.my/portal-main/release-document-log?release_document_id=11113" 
          target="_blank">
          Department of Statistics Malaysia
       </a> & 
