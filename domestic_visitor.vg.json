@@ -65,12 +65,20 @@
             "fields": ["Visitors"]
           }
         },
-        {"calculate": "toNumber(datum.Visitors)", "as": "VisitorsNum"}
+        {"calculate": "toNumber(datum.Visitors)", "as": "VisitorsNum"},
+        {
+          "joinaggregate": [
+            {"op": "max", "field": "VisitorsNum", "as": "MaxVisitors"}
+          ]
+        },
+        {
+          "calculate": "datum.VisitorsNum === datum.MaxVisitors",
+          "as": "IsMax"
+        }
       ],
       "mark": {
         "type": "circle",
-        "color": "#3182bd",
-        "opacity": 0.75,
+        "opacity": 0.8,
         "stroke": "#ffffff",
         "strokeWidth": 1
       },
@@ -80,13 +88,45 @@
         "size": {
           "field": "VisitorsNum",
           "type": "quantitative",
-          "scale": {"range": [100, 5000]},
+          "scale": {"range": [50, 3000]},
           "legend": {"title": "Number of Visitors"}
+        },
+        "color": {
+          "condition": {"test": "datum.IsMax", "value":  "#c10707"},
+          "value": "#3182bd"
         },
         "tooltip": [
           {"field": "State", "type": "nominal"},
           {"field": "VisitorsNum", "type": "quantitative", "title": "Visitor Count"}
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "State": "Selangor",
+            "Longitude": 101.5,
+            "Latitude": 3.5,
+            "Note": "Selangor has the \n most visitors"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Open Sans",
+        "fontSize": 12,
+        "align": "left",
+        "dx": -100,
+        "dy": 50,
+        "color": "#c10707",
+        "fontWeight": "bold",
+        "lineBreak": "\n"
+      },
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "text": {"field": "Note"}
       }
     }
   ]
