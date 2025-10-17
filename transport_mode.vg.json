@@ -34,26 +34,16 @@
       "mark": {"type": "arc", "outerRadius": 170, "innerRadius": 50}
     },
     {
-      "transform": [
-        {"filter": "datum.PercentageNum > 0"}   
-      ],
+      "transform": [{"filter": "datum.PercentageNum > 0"}],
       "mark": {
         "type": "text",
         "radius": 185,
         "align": "center",
-        "baseline": "middle"                      
+        "baseline": "middle"
       },
       "encoding": {
-        "theta": {
-          "field": "PercentageNum",
-          "type": "quantitative",
-          "stack": true
-        },
-        "text": {
-          "field": "PercentageNum",
-          "type": "quantitative",
-          "format": ".1f"
-        }
+        "theta": {"field": "PercentageNum", "type": "quantitative", "stack": true},
+        "text": {"field": "PercentageNum", "type": "quantitative", "format": ".1f"}
       }
     }
   ],
@@ -62,7 +52,15 @@
     "color": {
       "field": "Mode of Transport",
       "type": "nominal",
-      "title": "Mode of Transport"
+      "title": "Mode of Transport",
+      "scale": {
+        "range": [
+  "#F4A261", 
+  "#2A9D8F", 
+  "#B07AA1"  ,
+  "#264653"
+]
+      }
     },
     "tooltip": [
       {"field": "Mode of Transport", "type": "nominal"},
@@ -74,12 +72,11 @@
     "view": {"continuousWidth": 400, "continuousHeight": 400},
     "arc": {"innerRadius": 50},
     "legend": {
-    "labelFontSize": 12,       
-    "titleFontSize": 13,       
-    "symbolSize": 150,         
-    "labelFont": "Open Sans"   
-  }
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "symbolSize": 150,
+      "labelFont": "Open Sans"
+    }
   }
 }
-
 
